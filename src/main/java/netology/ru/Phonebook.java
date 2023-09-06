@@ -1,7 +1,13 @@
 package netology.ru;
 
+import java.util.HashMap;
+
 public class Phonebook {
+    protected static HashMap<String, Integer> phonebook = new HashMap<>();
     public static int add (String name, int number){
-        return 0;
+        if (!phonebook.containsKey(name)){
+            phonebook.put(name, number);
+        }
+        return phonebook.size();
     }
 }
