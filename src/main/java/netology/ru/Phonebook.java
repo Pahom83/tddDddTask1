@@ -22,4 +22,8 @@ public class Phonebook {
         }
         return "Number not found";
     }
+
+    public static int findByName (String name){
+        return 0;
+    }
 }

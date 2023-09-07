@@ -40,4 +40,19 @@ public class PhonebookTest {
         Assertions.assertEquals(expectedAleksey, test.findByNumber(333333));
         Assertions.assertEquals(expectedNotFound, test.findByNumber(444444));
     }
+
+    @Test
+    void findByNameTest(){
+        test.add("Иван", 111111);
+        test.add("Петр", 222222);
+        test.add("Алексей", 333333);
+        int expectedIvan = 111111;
+        int expectedPetya = 222222;
+        int expectedAleksey = 333333;
+        Assertions.assertEquals(expectedIvan, test.findByName("Иван"));
+        Assertions.assertEquals(expectedPetya, test.findByName("Петр"));
+        Assertions.assertEquals(expectedAleksey, test.findByName("Алексей"));
+        Assertions.assertEquals(0, test.findByName("Роман"));
+
+    }
 }
