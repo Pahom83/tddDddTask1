@@ -1,6 +1,7 @@
 package netology.ru;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Phonebook {
     protected static HashMap<String, Integer> phonebook = new HashMap<>();
@@ -12,6 +13,13 @@ public class Phonebook {
     }
 
     public static String findByNumber (int number){
-        return null;
+        if (phonebook.containsValue(number)){
+            for (Map.Entry<String, Integer> entry: phonebook.entrySet()){
+                if (number == entry.getValue()){
+                    return entry.getKey();
+                }
+            }
+        }
+        return "Number not found";
     }
 }
