@@ -2,6 +2,7 @@ package netology.ru;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class Phonebook {
     protected static HashMap<String, Integer> phonebook = new HashMap<>();
@@ -31,6 +32,16 @@ public class Phonebook {
     }
 
     public static String printAllNames(){
-        return null;
+        StringBuilder stringBuilder = new StringBuilder();
+        if (!phonebook.isEmpty()){
+            Map<String, Integer> sortedPhonebook = new TreeMap<>(phonebook);
+            for (Map.Entry<String, Integer> entry: sortedPhonebook.entrySet()) {
+                stringBuilder.append(entry.getKey()).append(", т. ").append(entry.getValue()).append("\n");
+            }
+
+        }
+        String sorted = stringBuilder.toString();
+        System.out.println(sorted.substring(0, sorted.length() - 1));
+        return sorted.substring(0, sorted.length() - 1);
     }
 }
