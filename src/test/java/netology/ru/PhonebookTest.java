@@ -55,4 +55,13 @@ public class PhonebookTest {
         Assertions.assertEquals(0, test.findByName("Роман"));
 
     }
+
+    @Test
+    void printAllNamesTest(){
+        test.add("Иван", 111111);
+        test.add("Петр", 222222);
+        test.add("Алексей", 333333);
+        String expected = "Алексей, т. 333333\nИван, т. 111111\nПетр, т. 222222";
+        Assertions.assertEquals(expected, test.printAllNames());
+    }
 }
